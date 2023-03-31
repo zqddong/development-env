@@ -2,6 +2,9 @@ version: '3'
 services:
     mysql:
         image: 'mysql:8.0'
+        # docker 安全验证
+        security_opt:
+            - seccomp:unconfined
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
